@@ -1,6 +1,7 @@
-﻿using Microsoft.Practices.Prism.Modularity;
-using Microsoft.Practices.Prism.Regions;
-using Microsoft.Practices.ServiceLocation;
+﻿using Prism.Modularity;
+using Prism.Regions;
+using CommonServiceLocator;
+using Prism.Ioc;
 
 namespace TestApplication.Module1
 {
@@ -15,13 +16,17 @@ namespace TestApplication.Module1
       _regionManager = regionManager;
     }
 
-		public void Initialize()
-		{
+        public void OnInitialized(IContainerProvider containerProvider)
+        {
 			_regionManager.RegisterViewWithRegion(ShellRegions.EditorContextMenu, GetContextMenu);
-			//_regionManager.RegisterViewWithRegion(ShellRegions.MainMenu, typeof(Ribbon));
 		}
 
-		private object GetContextMenu()
+        public void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            
+        }
+
+        private object GetContextMenu()
 		{
 			var cmv = ServiceLocator.Current.GetInstance<EditorContextMenuView>();
 			return cmv.ContextMenu;
