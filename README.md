@@ -3,6 +3,9 @@
 A RegionAdapter for the Ribbon native WPF control for the PRISM composite WPF application block.
 
 > **Forked from:** https://prismribbonregionadapter.codeplex.com/
+> And later from: https://github.com/Pretasoc/PrismRibbonRegionAdapter
+
+NOW UPGRADED TO PRISM 7
 
 ## This adapter supports the following:
 
